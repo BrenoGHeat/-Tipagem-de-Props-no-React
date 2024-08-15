@@ -2,8 +2,15 @@ import { useState } from "react"
 import { TeacherList } from "./components/TeacherList"
 import { TeacherListForm } from "./components/TeacherListForm"
 
+export interface ITeacher{
+  id:string;
+  name:string;
+  job: string;
+  module: string;
+}
+
 function App() {
-  const [teacherList, setTeacherList] = useState([
+  const [teacherList, setTeacherList] = useState<ITeacher[]>([
     {
       id: "75442486-0878-440c-9db1-a7006c25a39f",
       name: "Alex",
@@ -25,7 +32,7 @@ function App() {
   ])
   return (
     <div className="App">
-      <TeacherListForm setTeacherList={setTeacherList} />
+      <TeacherListForm teacherList={teacherList} setTeacherList={setTeacherList} />
       <TeacherList teacherList={teacherList} />
     </div>
   )

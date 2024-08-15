@@ -1,7 +1,14 @@
 import { FormEvent, useState } from "react"
 import { uuid } from "uuidv4";
+import { ITeacher } from "../../App";
 
-export const TeacherListForm = ({setTeacherList}) => {
+
+interface ITeacherProps{
+    teacherList: ITeacher[];
+    setTeacherList : React.Dispatch<React.SetStateAction<ITeacher[]>>
+}
+
+export const TeacherListForm = ({setTeacherList} : ITeacherProps) => {
     const [name, setName] = useState("");
     const [job, setJob] = useState("");
     const [courseModule, setCourseModule] = useState("");

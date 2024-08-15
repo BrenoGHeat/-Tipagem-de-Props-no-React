@@ -1,4 +1,4 @@
-import { TeacherCard } from "../TeacherCard"
+
 
 export const TeacherList = ({teacherList}) => {
     return(
