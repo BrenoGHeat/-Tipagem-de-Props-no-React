@@ -2,11 +2,11 @@ import { FormEvent, useState } from "react"
 import { uuid } from "uuidv4";
 import { ITeacher } from "../../App";
 
-
 interface ITeacherProps{
     teacherList: ITeacher[];
     setTeacherList : React.Dispatch<React.SetStateAction<ITeacher[]>>
 }
+
 
 export const TeacherListForm = ({setTeacherList} : ITeacherProps) => {
     const [name, setName] = useState("");
@@ -16,7 +16,9 @@ export const TeacherListForm = ({setTeacherList} : ITeacherProps) => {
     const submit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const newTeacher = { id: uuid(), name, job, module: courseModule };
-        setTeacherList();
+        setTeacherList((oldList) => {
+            return [...oldList , newTeacher]
+        });
     }
 
     return(

@@ -1,10 +1,17 @@
+import { ITeacher } from "../../App";
+import { TeacherCard } from "../TeacherCard";
 
 
-export const TeacherList = ({teacherList}) => {
+interface ITeacherListProps{
+    teacherList: ITeacher[];
+}
+
+
+export const TeacherList = ({teacherList} : ITeacherListProps) => {
     return(
         <ul>
             {teacherList.map(teacher => {
-                <TeacherCard key={teacher.id} name={teacher.name} job={teacher.job}  />
+                return <TeacherCard key={teacher.id} name={teacher.name} job={teacher.job} teacherModule={teacher.module} />
             })}
         </ul>
     )

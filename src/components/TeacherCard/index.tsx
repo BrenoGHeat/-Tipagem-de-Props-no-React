@@ -1,10 +1,12 @@
-import { ITeacher } from "../../App"
+
 
 interface ITeacherCard{
-    teacherlist : ITeacher;
+    name: string;
+    job: string;
+    teacherModule: string;
 }
 
-export const TeacherCard = ({name, job, teacherModule} : ITeacher ) => {
+export const TeacherCard = ({name, job, teacherModule} : ITeacherCard ) => {
     return(
         <li>
             <h3>{name}</h3>
